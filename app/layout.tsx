@@ -42,7 +42,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <Providers>
           <div className="relative flex min-h-screen flex-col">
-            {/* HEADER HERE */}
             <div className="flex-1">{children}</div>
           </div>
           <TailwindIndicator />
