@@ -36,10 +36,30 @@ export const Post = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "projects/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields,
+}))
+
 export default makeSource({
   /* options */
   contentDirPath: "./content",
-  documentTypes: [Post], // [Post, Page, Other]
+  documentTypes: [Post, Project], // [Post, Page, Other]
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

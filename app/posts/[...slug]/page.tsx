@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allPosts, Post } from "@/.contentlayer/generated"
+import { allPosts, Post } from "contentlayer/generated"
 
 import { Mdx } from "@/components/MdxComponents"
 

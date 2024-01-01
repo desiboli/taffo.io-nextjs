@@ -33,10 +33,29 @@ var Post = defineDocumentType(() => ({
   },
   computedFields
 }));
+var Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "projects/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true
+    },
+    description: {
+      type: "string"
+    },
+    date: {
+      type: "date",
+      required: true
+    }
+  },
+  computedFields
+}));
 var contentlayer_config_default = makeSource({
   /* options */
   contentDirPath: "./content",
-  documentTypes: [Post],
+  documentTypes: [Post, Project],
   // [Post, Page, Other]
   mdx: {
     remarkPlugins: [remarkGfm],
@@ -75,6 +94,7 @@ var contentlayer_config_default = makeSource({
 });
 export {
   Post,
+  Project,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-TSWCEJJ2.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-XNTGRRFR.mjs.map
