@@ -19,7 +19,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="grid w-full flex-1 grid-cols-1 gap-6 lg:grid-cols-2">
         <aside className="grid h-full max-h-screen grid-flow-row px-6 py-20 lg:sticky lg:left-0 lg:top-0 lg:pl-24">
-          <div className="">
+          <div className="mb-10">
             <h1 className="mb-10 text-4xl font-bold lg:text-6xl">
               Hello, I&apos;m <br /> Mustafa Alshammaa
             </h1>
@@ -74,7 +74,7 @@ export default function Home() {
         </aside>
         <section className="px-6 lg:py-20 lg:pr-24">
           <h1 className="mb-10 text-4xl font-bold">Recent Posts</h1>
-          <div className="mb-20 grid grid-cols-2 gap-8">
+          <div className="mb-20 grid gap-8 lg:grid-cols-2">
             {allPosts
               .slice()
               .sort((a, b) => compareDesc(parseISO(a.date), parseISO(b.date)))
@@ -82,7 +82,7 @@ export default function Home() {
               .map((post) => (
                 <article
                   key={post._id}
-                  className="bg-card w-full transition-all even:mt-8 hover:scale-110"
+                  className="bg-card w-full transition-all hover:scale-110 lg:even:mt-8"
                 >
                   <Link href={post.slug} className="flex h-full flex-col p-10">
                     <small className="mb-10 flex-1">
@@ -97,7 +97,7 @@ export default function Home() {
               ))}
             <Link
               href="/posts"
-              className="bg-card flex aspect-square w-full items-center justify-center font-bold hover:scale-110"
+              className="bg-card flex w-full items-center justify-center p-20 font-bold hover:scale-110"
             >
               All posts
             </Link>
