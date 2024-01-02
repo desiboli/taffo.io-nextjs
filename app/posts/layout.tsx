@@ -11,7 +11,7 @@ export default function PostLayout({
     <>
       <Header />
       <section>
-        <div className="container">{children}</div>
+        <div className="container py-32">{children}</div>
       </section>
     </>
   )

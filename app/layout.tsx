@@ -6,8 +6,8 @@ import type { Metadata, Viewport } from "next"
 
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Providers } from "@/components/Providers"
-import { TailwindIndicator } from "@/components/TailwindIndicator"
+import { Providers } from "@/components/providers"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 export const metadata: Metadata = {
   title: {

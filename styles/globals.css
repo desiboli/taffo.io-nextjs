@@ -95,3 +95,13 @@
     content: counter(list-counter) " ";
   }
 }
+
+.fade-siblings-on-hover:hover > *,
+.fade-siblings-on-hover:focus-within > * {
+  opacity: 0.4;
+}
+
+.fade-siblings-on-hover:hover > :hover,
+.fade-siblings-on-hover:focus-within > :focus {
+  opacity: 1;
+}

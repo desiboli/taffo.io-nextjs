@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { allPosts, Post } from "contentlayer/generated"
 import { formatDistance, subDays } from "date-fns"
 
-import { Mdx } from "@/components/MdxComponents"
+import { Mdx } from "@/components/mdx-components"
 
 interface PostProps {
   params: {
