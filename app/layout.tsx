@@ -6,7 +6,7 @@ import type { Metadata, Viewport } from "next"
 
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Providers } from "@/components/providersa"
+import { Providers } from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 export const metadata: Metadata = {
