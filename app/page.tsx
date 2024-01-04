@@ -1,11 +1,12 @@
 import Link from "next/link"
-import { allPosts } from "contentlayer/generated"
+import { allPosts, allSnippets } from "contentlayer/generated"
 import { formatDistance, subDays } from "date-fns"
 
 import { Icons } from "@/components/Icons"
 import MainNav from "@/components/main-nav"
 import RecentPosts from "@/components/recent-posts"
 import RecentProjects from "@/components/recent-projects"
+import WorkList from "@/components/work-list"
 
 export default function Home() {
   return (
@@ -61,19 +62,19 @@ export default function Home() {
 
           <h1 className="mb-10 text-4xl font-bold">Recent Snippets</h1>
           <div className="mb-20 flex flex-col gap-8">
-            {allPosts.map((post) => (
+            {allSnippets.map((snippet) => (
               <article
-                key={post._id}
+                key={snippet._id}
                 className="bg-card w-full transition-all hover:scale-110"
               >
-                <Link href={post.slug} className="flex h-full flex-col p-10">
+                <Link href={snippet.slug} className="flex h-full flex-col p-10">
                   <small className="mb-10 flex-1">
-                    {formatDistance(subDays(post.date, 3), new Date(), {
+                    {formatDistance(subDays(snippet.date, 3), new Date(), {
                       addSuffix: true,
                     })}
                   </small>
-                  <h2 className="mb-2 text-3xl">{post.title}</h2>
-                  {post.description && <p>{post.description}</p>}
+                  <h2 className="mb-2 text-3xl">{snippet.title}</h2>
+                  {snippet.description && <p>{snippet.description}</p>}
                 </Link>
               </article>
             ))}
@@ -86,6 +87,7 @@ export default function Home() {
           </div>
 
           <h1 className="mb-10 text-4xl font-bold">Work</h1>
+          <WorkList />
         </section>
       </div>
     </main>

@@ -15,7 +15,7 @@ export type Post = {
   type: 'Post'
   title: string
   description?: string | undefined
-  date: IsoDateTimeString
+  published: IsoDateTimeString
   /** MDX file body */
   body: MDX
   slug: string
@@ -34,6 +34,22 @@ export type Project = {
   body: MDX
   slug: string
   slugAsParams: string
+}
+
+export type Snippet = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Snippet'
+  title: string
+  description?: string | undefined
+  date: IsoDateTimeString
+  lastUpdated: IsoDateTimeString
+  category?: string | undefined
+  /** MDX file body */
+  body: MDX
+  slug: string
+  slugAsParams: string
 }  
 
 /** Nested types */
@@ -44,8 +60,8 @@ export type Project = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Post | Project
-export type DocumentTypeNames = 'Post' | 'Project'
+export type DocumentTypes = Post | Project | Snippet
+export type DocumentTypeNames = 'Post' | 'Project' | 'Snippet'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
@@ -54,6 +70,7 @@ export type DataExports = {
   allDocuments: DocumentTypes[]
   allPosts: Post[]
   allProjects: Project[]
+  allSnippets: Snippet[]
 }
 
 
@@ -75,6 +92,7 @@ declare global {
 export type DocumentTypeMap = {
   Post: Post
   Project: Project
+  Snippet: Snippet
 }
 
 export type NestedTypeMap = {

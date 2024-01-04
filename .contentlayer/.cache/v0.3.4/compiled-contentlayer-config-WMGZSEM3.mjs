@@ -1,89 +1,84 @@
-import { defineDocumentType, makeSource } from "@contentlayer/source-files"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypePrettyCode from "rehype-pretty-code"
-import rehypeSlug from "rehype-slug"
-import remarkGfm from "remark-gfm"
-
-/** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+// contentlayer.config.js
+import { defineDocumentType, makeSource } from "@contentlayer/source-files";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+var computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    resolve: (doc) => `/${doc._raw.flattenedPath}`
   },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-  },
-}
-
-export const Post = defineDocumentType(() => ({
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/")
+  }
+};
+var Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: "posts/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
-      required: true,
+      required: true
     },
     description: {
-      type: "string",
+      type: "string"
     },
     published: {
       type: "date",
-      required: true,
-    },
+      required: true
+    }
   },
-  computedFields,
-}))
-
-export const Project = defineDocumentType(() => ({
+  computedFields
+}));
+var Project = defineDocumentType(() => ({
   name: "Project",
   filePathPattern: "projects/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
-      required: true,
+      required: true
     },
     description: {
-      type: "string",
+      type: "string"
     },
     date: {
       type: "date",
-      required: true,
-    },
+      required: true
+    }
   },
-  computedFields,
-}))
-
-export const Snippet = defineDocumentType(() => ({
+  computedFields
+}));
+var Snippet = defineDocumentType(() => ({
   name: "Snippet",
   filePathPattern: "snippets/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
-      required: true,
+      required: true
     },
     description: {
-      type: "string",
+      type: "string"
     },
     date: {
       type: "date",
-      required: true,
+      required: true
     },
     lastUpdated: {
       type: "date",
-      required: true,
+      required: true
     },
     category: {
-      type: "string",
-    },
+      type: "list"
+    }
   },
-  computedFields,
-}))
-
-export default makeSource({
+  computedFields
+}));
+var contentlayer_config_default = makeSource({
   /* options */
   contentDirPath: "./content",
   documentTypes: [Post, Project, Snippet],
@@ -94,7 +89,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-dark",
+          theme: "github-dark"
           // onVisitLine(node) {
           //   // Prevent lines from collapsing in `display: grid` mode, and allow empty
           //   // lines to be copy/pasted
@@ -108,17 +103,24 @@ export default makeSource({
           // onVisitHighlightedWord(node) {
           //   node.properties.className = ["word--highlighted"]
           // },
-        },
+        }
       ],
       [
         rehypeAutolinkHeadings,
         {
           properties: {
             className: ["subheading-anchor"],
-            ariaLabel: "Link to section",
-          },
-        },
-      ],
-    ],
-  },
-})
+            ariaLabel: "Link to section"
+          }
+        }
+      ]
+    ]
+  }
+});
+export {
+  Post,
+  Project,
+  Snippet,
+  contentlayer_config_default as default
+};
+//# sourceMappingURL=compiled-contentlayer-config-WMGZSEM3.mjs.map

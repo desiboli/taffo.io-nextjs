@@ -7,7 +7,9 @@ export default function RecentPosts() {
     <div className="fade-siblings-on-hover mb-20 grid gap-8 lg:grid-cols-2">
       {allPosts
         .slice()
-        .sort((a, b) => compareDesc(parseISO(a.date), parseISO(b.date)))
+        .sort((a, b) =>
+          compareDesc(parseISO(a.published), parseISO(b.published))
+        )
         .slice(0, 5)
         .map((post) => (
           <article
@@ -16,7 +18,7 @@ export default function RecentPosts() {
           >
             <Link href={post.slug} className="flex h-full flex-col p-10">
               <small className="mb-10 flex-1 capitalize">
-                {formatDistance(post.date, new Date(), {
+                {formatDistance(post.published, new Date(), {
                   addSuffix: true,
                 })}
               </small>

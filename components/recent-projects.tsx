@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { allProjects } from "contentlayer/generated"
-import { compareDesc, formatDistance, parseISO } from "date-fns"
+import { compareDesc, format, parseISO } from "date-fns"
 
 export default function RecentProjects() {
   return (
@@ -16,9 +16,7 @@ export default function RecentProjects() {
           >
             <Link href={post.slug} className="flex h-full flex-col p-10">
               <small className="mb-10 flex-1 capitalize">
-                {formatDistance(post.date, new Date(), {
-                  addSuffix: true,
-                })}
+                {format(post.date, "MMMM d, yyyy")}
               </small>
               <h2 className="mb-2 text-3xl">{post.title}</h2>
               {post.description && <p>{post.description}</p>}
@@ -26,7 +24,7 @@ export default function RecentProjects() {
           </article>
         ))}
       <Link
-        href="/posts"
+        href="/projects"
         className="bg-card flex w-full items-center justify-center p-20 font-bold transition-all duration-500 lg:hover:scale-125"
       >
         All projects

@@ -28,6 +28,10 @@ var Post = defineDocumentType(() => ({
     },
     date: {
       type: "date",
+      required: false
+    },
+    published: {
+      type: "published",
       required: true
     }
   },
@@ -97,4 +101,4 @@ export {
   Project,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-XNTGRRFR.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-2JEZCMAZ.mjs.map
