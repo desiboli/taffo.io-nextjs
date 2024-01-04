@@ -16,13 +16,19 @@ export default function MainNav() {
           </Link>
         </li>
         <li className="group flex w-fit items-center before:min-w-4">
-          <Link href="#" className="flex items-center font-semibold uppercase">
+          <Link
+            href="/projects"
+            className="flex items-center font-semibold uppercase"
+          >
             <Separator className="mr-4 w-6 transition-all group-hover:w-10 group-hover:bg-white" />
             Projects
           </Link>
         </li>
         <li className="group flex w-fit items-center before:min-w-4">
-          <Link href="#" className="flex items-center font-semibold uppercase">
+          <Link
+            href="/snippets"
+            className="flex items-center font-semibold uppercase"
+          >
             <Separator className="mr-4 w-6 transition-all group-hover:w-10 group-hover:bg-white" />
             Snippets
           </Link>
